@@ -21,10 +21,6 @@ export const StyledForm = styled.form`
   column-gap: 20px;
   align-items: center;
   flex: 1;
-
-  input {
-    height: 40px;
-  }
 `;
 
 export const FullRowCell = styled.div`

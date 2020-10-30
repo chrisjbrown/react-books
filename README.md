@@ -11,9 +11,10 @@ I used Create React App to bootstrap the project
 
 ## Dependencies
 
-- styled-components
-- redux
-- react-icons
+- styled-components - css
+- redux - state
+- react-icons - icons
+- uuid - generate unique id for books
 
 ## Dev Dependencies
 

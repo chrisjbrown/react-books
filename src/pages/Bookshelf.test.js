@@ -24,16 +24,24 @@ describe("BookShelf page", () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it("should call remove book", () => {
-    const { getAllByText, store } = renderWithRouter(<BookShelf />, {
+  it("should sort books desc", () => {
+    const { container, getByText } = renderWithRouter(<BookShelf />, {
       initialState: stateWithBooks,
     });
 
-    fireEvent.click(getAllByText("X")[0]);
+    fireEvent.click(getByText("Sort"));
 
-    const actions = store.getActions();
-    const expectedPayload = { type: "REMOVE_BOOK", id: 1 };
-    expect(actions).toEqual([expectedPayload]);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("should render books as list", () => {
+    const { container, getByText } = renderWithRouter(<BookShelf />, {
+      initialState: stateWithBooks,
+    });
+
+    fireEvent.click(getByText("List/"));
+
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it("should call add book", () => {
@@ -63,6 +71,18 @@ describe("BookShelf page", () => {
         customFields: [],
       },
     };
+    expect(actions).toEqual([expectedPayload]);
+  });
+
+  it("should call remove book", () => {
+    const { getAllByText, store } = renderWithRouter(<BookShelf />, {
+      initialState: stateWithBooks,
+    });
+
+    fireEvent.click(getAllByText("X")[0]);
+
+    const actions = store.getActions();
+    const expectedPayload = { type: "REMOVE_BOOK", id: 1 };
     expect(actions).toEqual([expectedPayload]);
   });
 });

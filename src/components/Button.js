@@ -14,7 +14,7 @@ const StyledButton = styled.button`
   }
 `;
 
-function Button({ onClick, variant = "primary", children }) {
+function Button({ onClick = () => {}, variant = "primary", children }) {
   return (
     <StyledButton variant={variant} onClick={onClick}>
       {children}

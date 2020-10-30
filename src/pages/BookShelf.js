@@ -72,10 +72,12 @@ function Bookshelf({ books, dispatchRemoveBook }) {
 
   function renderBooks() {
     const sortedBooks = books.sort((a, b) => {
+      const upNameA = a.name.toUpperCase();
+      const upNameB = b.name.toUpperCase();
       if (isSortAsc) {
-        return a.name.toLowerCase() > b.name.toLowerCase();
+        return upNameA < upNameB ? -1 : upNameA > upNameB ? 1 : 0;
       } else {
-        return a.name.toLowerCase() < b.name.toLowerCase();
+        return upNameA < upNameB ? 1 : upNameA > upNameB ? -1 : 0;
       }
     });
 
