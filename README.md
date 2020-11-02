@@ -1,3 +1,10 @@
+FYI I wanted to deploy this to gh-pages but I'm using react-router with the BrowserRouter and
+using pushState which doesn't play nice with gh-page.
+
+you can run the project locally by running
+
+`npm start`
+
 # React books assignment - post analysis
 
 I started by choosing two of the enhancements that I would work on. I found these two interesting
